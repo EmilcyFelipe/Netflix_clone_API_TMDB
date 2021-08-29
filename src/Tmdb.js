@@ -38,9 +38,9 @@ export default {
             },
            
             {
-                slug: 'action',
-                title: 'Ação',
-                items:await basicFetch(`/discover/tv?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
+                slug: 'crime',
+                title: 'Crime',
+                items:await basicFetch(`/discover/tv?with_genres=80&language=pt-BR&api_key=${API_KEY}`)
             },
             {
                 slug: 'comedy',
@@ -49,9 +49,9 @@ export default {
             },
              
             {
-                slug: 'horror',
-                title: 'Terror',
-                items: await basicFetch(`/discover/tv?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
+                slug: 'mistery',
+                title: 'Mistério',
+                items: await basicFetch(`/discover/tv?with_genres=9648&language=pt-BR&api_key=${API_KEY}`)
             },
               
             {
@@ -65,6 +65,24 @@ export default {
                 items: await basicFetch(`/discover/tv?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
             },
         ]
+    },
+
+    getMovieInfo: async (movieId,type)=>{
+        let info = {};
+        if(movieId){
+            switch(type){
+                case 'movie':
+                    info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`);
+                break;
+                case 'tv':
+                    info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`);
+                break;
+                default:
+                    info = null;
+                break;
+            }
+        }
+        return info
     }
     
 }
