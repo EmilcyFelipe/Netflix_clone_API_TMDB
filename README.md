@@ -13,4 +13,4 @@
 ## Direitos de imagem reservados ao Netflix
 
 ## Status
-  Concluído
+  Concluído 🚀🚀
